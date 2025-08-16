@@ -210,9 +210,9 @@ async function syncQuoteToServer(quote) {
   }
 }
 
-function mergeServerQuotes(serverQuotes) {
+function syncQuotes(serverQuotes) {
   let conflicts = 0;
-  const localMap = new Map(quotes.map(q => [q.id, q]));
+  const syncQuotes = new Map(quotes.map(q => [q.id, q]));
 
   serverQuotes.forEach(sq => {
     if (!localMap.has(sq.id)) {
