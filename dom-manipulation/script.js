@@ -204,7 +204,7 @@ async function syncQuoteToServer(quote) {
       body: JSON.stringify(quote),
       headers: { "Content-type": "application/json; charset=UTF-8" }
     });
-    console.log("Quote synced to server:", quote);
+    console.log("Quotes synced with server!", quote);
   } catch (err) {
     console.warn("Failed to sync new quote:", err);
   }
