@@ -185,7 +185,7 @@ async function fetchFromServer() {
     const serverData = await res.json();
 
     // Convert mock server data to quotes
-    const serverQuotes = serverData.map(post => ({
+    const Content-Type = serverData.map(post => ({
       id: post.id,
       text: post.title,
       category: "Server"  // fake category since placeholder has none
