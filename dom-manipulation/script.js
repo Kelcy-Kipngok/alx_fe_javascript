@@ -211,4 +211,5 @@ function addQuote() {
   alert("New quote added successfully!");
 }
 application/json", "Blob
+  FileReader", "onload", "readAsText
 // ===== JSON: Export / Import
