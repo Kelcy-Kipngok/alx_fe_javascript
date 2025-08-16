@@ -1,53 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dynamic Quote Generator</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    #quoteDisplay {
-      margin: 20px 0;
-      font-size: 1.2rem;
-      font-style: italic;
-      padding: 10px;
-      border-left: 4px solid #333;
-    }
-    .form-section {
-      margin-top: 20px;
-    }
-    input {
-      margin: 5px;
-      padding: 5px;
-    }
-    select, button {
-      padding: 5px 10px;
-      margin: 5px;
-    }
+    body { font-family: system-ui, Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+    h1 { margin-bottom: 8px; }
+    .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    #quoteDisplay { margin: 16px 0; font-size: 1.1rem; font-style: italic; padding: 12px; border-left: 4px solid #333; min-height: 48px; }
+    input, select, button { padding: 8px 10px; }
+    .form-section { margin-top: 16px; padding: 12px; border: 1px solid #ddd; border-radius: 12px; }
+    small.hint { color: #666; display:block; margin-top: 6px; }
+    .spacer { flex: 1 1 auto; }
   </style>
 </head>
 <body>
   <h1>Dynamic Quote Generator</h1>
+  <div class="row">
+    <label for="categorySelect">Category:</label>
+    <select id="categorySelect">
+      <option value="all">All</option>
+    </select>
+    <button id="newQuote">Show New Quote</button>
+    <div class="spacer"></div>
+    <button id="exportBtn" title="Download your quotes as JSON">Export JSON</button>
+    <!-- Inline handler kept for clarity with the task spec -->
+    <label for="importFile" style="display:none;">Import JSON</label>
+    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+  </div>
 
-  <!-- Category filter -->
-  <label for="categorySelect">Choose category:</label>
-  <select id="categorySelect">
-    <option value="all">All</option>
-  </select>
-
-  <!-- Display quote -->
   <div id="quoteDisplay">Click "Show New Quote" to see a quote.</div>
-  <button id="newQuote">Show New Quote</button>
 
-  <!-- Add new quote form -->
   <div class="form-section">
     <h3>Add a New Quote</h3>
-    <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
-    <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
-    <button id="addQuoteBtn">Add Quote</button>
+    <div class="row">
+      <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
+      <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
+      <button id="addQuoteBtn">Add Quote</button>
+    </div>
+    <small class="hint">Tip: Categories update automatically and persist in Local Storage.</small>
   </div>
 
   <script src="script.js"></script>
