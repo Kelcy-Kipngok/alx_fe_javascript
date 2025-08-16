@@ -210,5 +210,5 @@ function addQuote() {
 
   alert("New quote added successfully!");
 }
-
+application/json", "Blob
 // ===== JSON: Export / Import
