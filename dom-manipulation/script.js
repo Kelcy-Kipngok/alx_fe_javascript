@@ -181,7 +181,7 @@ function addQuote() {
 async function fetchFromServer() {
   try {
     // Simulate GET from server
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=5");
+    const fetchQuotesFromServer = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=5");
     const serverData = await res.json();
 
     // Convert mock server data to quotes
