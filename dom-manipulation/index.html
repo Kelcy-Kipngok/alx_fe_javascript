@@ -5,41 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dynamic Quote Generator</title>
   <style>
-    body { font-family: system-ui, Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
-    h1 { margin-bottom: 8px; }
-    .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-    #quoteDisplay { margin: 16px 0; font-size: 1.1rem; font-style: italic; padding: 12px; border-left: 4px solid #333; min-height: 48px; }
-    input, select, button { padding: 8px 10px; }
-    .form-section { margin-top: 16px; padding: 12px; border: 1px solid #ddd; border-radius: 12px; }
-    small.hint { color: #666; display:block; margin-top: 6px; }
-    .spacer { flex: 1 1 auto; }
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+    h1 { margin-bottom: 10px; }
+    #quoteDisplay { margin: 16px 0; padding: 12px; font-size: 1.1rem; font-style: italic; border-left: 4px solid #444; }
+    select, button, input { padding: 6px 10px; margin: 4px; }
+    .form-section { margin-top: 20px; padding: 12px; border: 1px solid #ddd; border-radius: 8px; }
   </style>
 </head>
 <body>
   <h1>Dynamic Quote Generator</h1>
-  <div class="row">
-    <label for="categorySelect">Category:</label>
-    <select id="categorySelect">
-      <option value="all">All</option>
-    </select>
-    <button id="newQuote">Show New Quote</button>
-    <div class="spacer"></div>
-    <button id="exportBtn" title="Download your quotes as JSON">Export JSON</button>
-    <!-- Inline handler kept for clarity with the task spec -->
-    <label for="importFile" style="display:none;">Import JSON</label>
-    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
-  </div>
 
+  <!-- Category filter -->
+  <label for="categoryFilter">Filter by Category:</label>
+  <select id="categoryFilter" onchange="filterQuotes()">
+    <option value="all">All Categories</option>
+    <!-- Dynamically populated -->
+  </select>
+
+  <!-- Quote display -->
   <div id="quoteDisplay">Click "Show New Quote" to see a quote.</div>
+  <button id="newQuote">Show New Quote</button>
 
+  <!-- Add new quotes -->
   <div class="form-section">
     <h3>Add a New Quote</h3>
-    <div class="row">
-      <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
-      <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
-      <button id="addQuoteBtn">Export Quotes</button>
-    </div>
-    <small class="hint">Tip: Categories update automatically and persist in Local Storage.</small>
+    <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
+    <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
+    <button id="addQuoteBtn">Add Quote</button>
   </div>
 
   <script src="script.js"></script>
