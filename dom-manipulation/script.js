@@ -51,6 +51,8 @@ function createAddQuoteForm() {
   const categoryInput = document.getElementById("newQuoteCategory");
   const text = textInput.value.trim();
   const category = categoryInput.value.trim();
+  const exportBtn       = document.getElementById("exportBtn");
+const importInput     = document.getElementById("importFile");
 
   if (text && category) {
     quotes.push({ text, category });
@@ -89,7 +91,7 @@ const quoteDisplay   = document.getElementById("quoteDisplay");
 const newQuoteBtn    = document.getElementById("newQuote");
 const addQuoteBtn    = document.getElementById("addQuoteBtn");
 const categoryFilter = document.getElementById("categoryFilter");
-
+Export Quotes
 // Banner to show sync messages
 const banner = document.createElement("div");
 banner.id = "conflictBanner";
